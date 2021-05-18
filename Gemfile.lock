@@ -5,7 +5,7 @@ PATH
       dotenv (~> 2.7)
       http (~> 4.4)
       json (~> 2.5)
-      orbit_activities (~> 0.0.1)
+      orbit_activities (~> 0.0.2)
       thor (~> 1.1)
       zeitwerk (~> 2.4)
 
@@ -38,7 +38,7 @@ GEM
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
     json (2.5.1)
-    orbit_activities (0.0.1)
+    orbit_activities (0.0.2)
       http (~> 4.4)
       json (~> 2.5)
       rake (~> 13.0)
@@ -64,7 +64,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.14.0)
+    rubocop (1.15.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -81,7 +81,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (2.0.0)
-    webmock (3.12.2)
+    webmock (3.13.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -92,6 +92,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  orbit_activities
   pipedrive_orbit!
   rake (~> 13.0)
   rspec (~> 3.4)
