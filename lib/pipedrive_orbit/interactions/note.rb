@@ -34,7 +34,7 @@ module PipedriveOrbit
       end
 
       def construct_name
-        @note["person"]["name"] if @note["person"]
+        return @note["person"]["name"] if @note["person"]
 
         @note["organization"]["name"]
       end
@@ -65,11 +65,11 @@ module PipedriveOrbit
       end
 
       def construct_description
-        body = @note["content"]
+        note = @note["content"].dup
 
-        body.prepend("Note added for deal - #{@note["deal"]["title"]}:<br>") unless @note["deal"] == nil
+        note.prepend("Note added for deal - #{@note["deal"]["title"]}:<br>") unless @note["deal"] == nil
 
-        body
+        note
       end
     end
   end
