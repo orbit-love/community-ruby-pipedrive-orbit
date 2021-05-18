@@ -1,0 +1,28 @@
+
+#!/usr/bin/env ruby
+require 'optparse'
+
+check_notes = false
+
+options = {}
+choices = OptionParser.new do |opts|
+  opts.banner = "Usage: pipedrive_orbit --check-notes"
+  opts.on("-h", "--help", "Prints help instructions") do
+    puts opts
+    exit
+  end
+  opts.on("--check-notes", "Check for new Pipedrive deal notes") do
+    check_notes = true
+  end
+end.parse!
+
+$LOAD_PATH.unshift(File.expand_path('../lib/pipedrive_orbit', __dir__))
+
+require_relative '../lib/pipedrive_orbit'
+require_relative '../scripts/check_notes'
+
+if check_notes
+  puts "Checking for new Pipedrive deal notes and posting them to your Orbit workspace..."
+  ARGV[0] = 'render'
+  PipedriveOrbit::Scripts::CheckNotes.start(ARGV)
+end

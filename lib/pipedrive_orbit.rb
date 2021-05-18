@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "zeitwerk"
+require "orbit_activities"
 require_relative "pipedrive_orbit/version"
 
 module PipedriveOrbit
