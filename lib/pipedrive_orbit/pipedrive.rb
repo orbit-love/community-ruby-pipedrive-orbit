@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "active_support/time"
+
 module PipedriveOrbit
     class Pipedrive
         def initialize(params = {})
@@ -24,6 +26,56 @@ module PipedriveOrbit
                     orbit_workspace: @orbit_workspace,
                     orbit_api_key: @orbit_api_key                )
             end
+        end
+
+        def process_activities
+            activities = get_activities
+
+            return get_activities["error"] if get_activities["success"] == false
+            return "No new activities in the past day!" if activities.nil?
+
+            activities["data"].each do |activity|
+                next if no_member_info(activity)
+
+                PipedriveOrbit::Orbit.call(
+                    type: "activity",
+                    data: {
+                        activity: activity,
+                        pipedrive_url: @pipedrive_url
+                    },
+                    orbit_workspace: @orbit_workspace,
+                    orbit_api_key: @orbit_api_key
+                )
+            end
+        end
+
+        def get_activities
+            url = URI("https://api.pipedrive.com/v1/activities")
+            url.query = "user_id=0&start_date=#{create_start_date}&end_date=#{create_end_date}&api_token=#{@pipedrive_api_key}"
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+            
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+
+            response = JSON.parse(response.body)
+        end
+
+        def no_member_info(activity)
+            return true if activity["person_name"].nil? && activity["attendees"].nil?
+
+            false
+        end
+
+        def create_start_date
+            date = Date.parse(Time.now.utc.to_date.to_s)-1.day
+            date.strftime("%Y-%m-%d")
+        end
+
+        def create_end_date
+            date = Date.parse(Time.now.utc.to_date.to_s)
+            date.strftime("%Y-%m-%d")
         end
 
         def get_notes
