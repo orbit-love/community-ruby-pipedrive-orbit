@@ -67,6 +67,13 @@ You can fetch Pipedrive activities and send them to Orbit by invoking the `#acti
 ```ruby
 client.activities
 ```
+### Fetching Pipedrive Notes on People
+
+You can fetch Pipedrive notes on people and send them to Orbit by invoking the `#people_notes` instance method:
+
+```ruby
+client.people_notes
+```
 ## CLI Usage
 
 You can also use this package with the included CLI. To use the CLI pass in the required environment variables on the command line before invoking the CLI.
@@ -81,6 +88,12 @@ To check for new activities:
 
 ```bash
 $ ORBIT_API_KEY=... ORBIT_WORKSPACE_ID=... PIPEDRIVE_API_KEY=... PIPEDRIVE_URL=... bundle exec pipedrive_orbit --check_activities
+```
+
+To check for new notes on people:
+
+```bash
+$ ORBIT_API_KEY=... ORBIT_WORKSPACE_ID=... PIPEDRIVE_API_KEY=... PIPEDRIVE_URL=... bundle exec pipedrive_orbit --check_people_notes
 ```
 
 ## GitHub Actions Automation Setup

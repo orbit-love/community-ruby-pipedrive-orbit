@@ -20,6 +20,15 @@ module PipedriveOrbit
             orbit_api_key: orbit_api_key
           )
         end
+
+        if type == "person_note"
+          PipedriveOrbit::Interactions::PersonNote.new(
+            note: data[:note],
+            pipedrive_url: data[:pipedrive_url],
+            orbit_workspace: orbit_workspace,
+            orbit_api_key: orbit_api_key
+          )
+        end
       end
     end
   end
