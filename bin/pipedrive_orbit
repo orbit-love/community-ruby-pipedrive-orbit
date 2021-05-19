@@ -3,6 +3,7 @@
 require 'optparse'
 
 check_notes = false
+check_activities = false
 
 options = {}
 choices = OptionParser.new do |opts|
@@ -13,6 +14,9 @@ choices = OptionParser.new do |opts|
   end
   opts.on("--check-notes", "Check for new Pipedrive deal notes") do
     check_notes = true
+  end
+  opts.on("--check-check_activities", "Check for new Pipedrive activities") do
+    check_activities = true
   end
 end.parse!
 
@@ -25,4 +29,10 @@ if check_notes
   puts "Checking for new Pipedrive deal notes and posting them to your Orbit workspace..."
   ARGV[0] = 'render'
   PipedriveOrbit::Scripts::CheckNotes.start(ARGV)
+end
+
+if check_activities
+  puts "Checking for new Pipedrive activities and posting them to your Orbit workspace..."
+  ARGV[0] = 'render'
+  PipedriveOrbit::Scripts::CheckActivities.start(ARGV)
 end

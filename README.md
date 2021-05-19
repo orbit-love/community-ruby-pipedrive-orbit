@@ -60,13 +60,29 @@ Once, you have an instantiated client, you can fetch Pipedrive deal notes and se
 ```ruby
 client.notes
 ```
+### Fetching Pipedrive Notes
+
+Once, you have an instantiated client, you can fetch Pipedrive activities and send them to Orbit by invoking the `#activities` instance method:
+
+```ruby
+client.activities
+```
 ## CLI Usage
 
-You can also use this package with the included CLI. To use the CLI pass in the required environment variables on the command line before invoking the CLI:
+You can also use this package with the included CLI. To use the CLI pass in the required environment variables on the command line before invoking the CLI.
+
+To check for new deal notes:
 
 ```bash
 $ ORBIT_API_KEY=... ORBIT_WORKSPACE_ID=... PIPEDRIVE_API_KEY=... PIPEDRIVE_URL=... bundle exec pipedrive_orbit --check_notes
 ```
+
+To check for new activities:
+
+```bash
+$ ORBIT_API_KEY=... ORBIT_WORKSPACE_ID=... PIPEDRIVE_API_KEY=... PIPEDRIVE_URL=... bundle exec pipedrive_orbit --check_activities
+```
+
 ## GitHub Actions Automation Setup
 
 ⚡ You can set up this integration in a matter of minutes using our GitHub Actions template. It will run regularly to add new activities to your Orbit workspace. All you need is a GitHub account.

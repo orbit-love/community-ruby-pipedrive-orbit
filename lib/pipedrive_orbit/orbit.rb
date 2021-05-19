@@ -11,6 +11,15 @@ module PipedriveOrbit
             orbit_api_key: orbit_api_key
           )
         end
+
+        if type == "activity"
+          PipedriveOrbit::Interactions::Activity.new(
+            activity: data[:activity],
+            pipedrive_url: data[:pipedrive_url],
+            orbit_workspace: orbit_workspace,
+            orbit_api_key: orbit_api_key
+          )
+        end
       end
     end
   end
