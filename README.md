@@ -60,9 +60,9 @@ Once, you have an instantiated client, you can fetch Pipedrive deal notes and se
 ```ruby
 client.notes
 ```
-### Fetching Pipedrive Notes
+### Fetching Pipedrive Activities
 
-Once, you have an instantiated client, you can fetch Pipedrive activities and send them to Orbit by invoking the `#activities` instance method:
+You can fetch Pipedrive activities and send them to Orbit by invoking the `#activities` instance method:
 
 ```ruby
 client.activities
