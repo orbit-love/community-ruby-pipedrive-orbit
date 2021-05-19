@@ -56,5 +56,14 @@ module PipedriveOrbit
         orbit_workspace: @orbit_workspace
       ).process_activities
     end
+
+    def people_notes
+      PipedriveOrbit::Pipedrive.new(
+        pipedrive_api_key: @pipedrive_api_key,
+        pipedrive_url: @pipedrive_url,
+        orbit_api_key: @orbit_api_key,
+        orbit_workspace: @orbit_workspace
+      ).process_people_notes
+    end
   end
 end
