@@ -19,6 +19,7 @@ module PipedriveOrbit
             api_key: @orbit_api_key,
             workspace_id: @orbit_workspace,
             user_agent: "community-ruby-pipedrive-orbit/#{PipedriveOrbit::VERSION}",
+            action: "new_activity",
             body: construct_body.to_json
         )
       end

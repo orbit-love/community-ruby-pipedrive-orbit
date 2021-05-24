@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    pipedrive_orbit (0.0.2)
+    pipedrive_orbit (0.0.3)
       activesupport (~> 6.1)
       dotenv (~> 2.7)
       http (~> 4.4)
       json (~> 2.5)
-      orbit_activities (~> 0.0.2)
+      orbit_activities (~> 0.1)
       thor (~> 1.1)
       zeitwerk (~> 2.4)
 
@@ -30,7 +30,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
-    ffi (1.15.0)
+    ffi (1.15.1)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -49,7 +49,7 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.5.1)
     minitest (5.14.4)
-    orbit_activities (0.0.2)
+    orbit_activities (0.1.0)
       http (~> 4.4)
       json (~> 2.5)
       rake (~> 13.0)
