@@ -6,6 +6,9 @@
 
 Add your Pipedrive CRM interactions into your Orbit workspace with this community-built integration.
 
+![Example screenshot of a new Pipedrive activity in Orbit](readme-images/new-activity-screenshot.png)
+![Example screenshot of a new Pipedrive note in Orbit](readme-images/new-note-screenshot.png)
+
 |<p align="left">:sparkles:</p> This is a *community project*. The Orbit team does its best to maintain it and keep it up to date with any recent API changes.<br/><br/>We welcome community contributions to make sure that it stays current. <p align="right">:sparkles:</p>|
 |-----------------------------------------|
 
