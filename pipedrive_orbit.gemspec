@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.executables            = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths          = ["lib"]
   
-  spec.add_dependency "activesupport", "~> 6.1"
+  spec.add_dependency "activesupport", ">= 6.1", "< 8.0"
   spec.add_dependency "http", "~> 4.4"
   spec.add_dependency "json", "~> 2.5"
   spec.add_dependency "zeitwerk", "~> 2.4"
